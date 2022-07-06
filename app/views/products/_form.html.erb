@@ -1,0 +1,51 @@
+<%=form_with model:@product do |form| %>
+    <div class="mb-4">
+        <%= form.label 'Name', class:"block mb-1" %>
+        <%= form.text_field :name, placeholder:"Product name", class:"appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"%>
+    </div>
+
+    <div class="mb-4">
+        <%= form.label 'Description', class:"block mb-1" %>
+        <%= form.text_area :description, placeholder:"Product description", class:"appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full", rows:"4"%>
+    </div>
+
+    <div class="mb-4">
+        <%= form.label "Image upload", class:"block mb-1"%>
+        <%= form.file_field :image  %>
+    </div>
+
+    <div class="grid md:grid gap-x-2">
+        <div class="mb-4">
+            <label class="block mb-1"> Category </label>
+            <div class="relative">
+                <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
+                <option> Clothes for men </option>
+                <option> backpacks </option>
+                <option> clocks </option>
+                <option> cameras </option>
+                </select>
+                <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
+                <svg width="22" height="22" class="fill-current" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"></path></svg>
+                </i>
+            </div>
+        </div>
+        <div class="mb-4">
+            <%= form.label "Price", class:"block mb-1"%>
+            <div class="grid grid-cols-3 gap-x-2 md:w-1/2">
+                <div class="col-span-2">
+                    <%= form.text_field :price, placeholder:"0.00", class:"appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"%>
+                </div>
+            </div>
+        </div> <!-- flex grid -->
+    </div>
+
+    <div class="flex items-center w-max my-4">
+        <%=form.check_box :visible, class:"h-4 w-4"%>
+        <%= form.label "Publish item now", class:"ml-2 inline-block text-gray-500"%>
+    
+    </div>
+
+    <%= form.submit "Submit item", class:"cursor-pointer my-2 px-4 py-2 text-center inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"%>
+     
+
+<%end%>
