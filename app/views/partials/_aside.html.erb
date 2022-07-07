@@ -1,41 +1,39 @@
-  <aside id="sidebar" class="fixed -left-full top-0 bottom-0 md:static z-40 w-60 overflow-y-auto bg-blue-800 flex-shrink-0">
+<b id="backdrop" onclick="hide_sidebar()" class="fixed hidden md:hidden bg-black opacity-60 top-0 left-0 right-0 bottom-0 z-30"></b>
+      <aside id="sidebar" class="fixed -left-full top-0 bottom-0 md:static z-40 w-60 overflow-y-auto bg-blue-800 flex-shrink-0">
+                
+          <header class="flex items-center justify-between h-14 px-4 py-2 mb-2 border-b border-blue-700">
+            <%= link_to admin_path do %> 
+              <%= image_tag 'logo/logo-white.png', class:"max-h-9 hover:opacity-70", size:'100x100'%> 
+            <% end %>
+            <button onclick="hide_sidebar()" class="md:hidden float-right appearance-none border border-transparent bg-transparent text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </header>
+
+          <ul>
+            <li class="hover:bg-blue-100 relative">
+              <%= link_to 'Product', new_products_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+
+            </li>
+
+            <li class="hover:bg-blue-100 relative">
+              <%= link_to 'Detail Products', product_details_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+            </li>
+
+              <li class="hover:bg-blue-100 relative">
+                  <%= link_to 'Store', products_path , class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+              </li>
+
+
+          </ul>
           
-    <header class="flex items-center justify-between h-14 px-4 py-2 mb-2 border-b border-blue-700">
-       <%= image_tag 'logo/logo-white.png', class:"max-h-9 hover:opacity-70", size:'100x100'%> 
-      <button onclick="hide_sidebar()" class="md:hidden float-right appearance-none border border-transparent bg-transparent text-white">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-    </header>
+          <hr class="border-blue-600">
 
-    <ul>
-      <li class="hover:bg-blue-100 relative">
+          <div class="px-5 my-6">
+            <button class="inline-block w-full text-left px-4 py-2 text-black bg-yellow-400 border border-transparent rounded-md hover:bg-yellow-500">
+              Create account <span class="float-right" aria-hidden="true">+</span>
+            </button>
+          </div>
+      </aside>
 
-        <%= link_to 'Product', new_products_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
-
-
-      </li>
-
-      <li class="hover:bg-blue-100 relative">
-        <a href="admin-table.html" class="flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700">
-          <span aria-hidden="true">
-            <svg class="text-white opacity-50" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </span>
-          <span class="ml-3">Category</span>
-        </a>
-      </li>
-
-        <li class="hover:bg-blue-100 relative">
-            <%= link_to 'Store', products_path , class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
-        </li>
-
-
-    </ul>
-    
-    <hr class="border-blue-600">
-
-    <div class="px-5 my-6">
-      <button class="inline-block w-full text-left px-4 py-2 text-black bg-yellow-400 border border-transparent rounded-md hover:bg-yellow-500">
-        Create account <span class="float-right" aria-hidden="true">+</span>
-      </button>
-    </div>
-  </aside>
+  
