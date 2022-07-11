@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :categories
   #get 'products', to: 'products#index'
   get 'admin', to: 'admin#index'

@@ -21,20 +21,18 @@
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
-						<i class="text-gray-400 w-5 fa fa-user"></i> 
-						<span class="hidden lg:inline ml-1">Sign in</span>
-					</a>
-
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
-						<i class="text-gray-400 w-5 fa fa-heart"></i> 
-						<span class="hidden lg:inline ml-1">Wishlist</span> 
-					</a>
 
 					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
 						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
 						<span class="hidden lg:inline ml-1">My cart</span>
 					</a>
+
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+						<i class="text-gray-400 w-5 fa fa-user"></i> 
+						<span class="hidden lg:inline ml-1">Sign in as <%= link_to current_user.email, edit_user_registration_path %></span>
+					</a>
+
+					<%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %>
 				</div>
 				<!-- Actions .//end -->
 				

@@ -1,0 +1,49 @@
+<section class="bg-gray-100 py-10" style="min-height: 86vh">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <div style="max-width:360px" class="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg">
+      <h2 class="mb-5 text-2xl font-semibold">Log in</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-4">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full",  placeholder:"Type here" %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class:"appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full",  placeholder:"Type here" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center w-max mb-5">
+            <%= f.check_box :remember_me, class:"h-4 w-4" %>
+            <%= f.label :remember_me, class:"ml-2 inline-block text-gray-500" %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Log in", class:"px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" %>
+        </div>
+      <% end %>
+
+      <div class="text-center border-b my-5" style="line-height: 0.1rem;">
+					<span class="px-3 bg-white text-gray-400">or</span>
+			</div>
+
+      <a href="#" class="mb-2 px-4 py-2 w-full flex items-center justify-center text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
+        <%= image_tag 'social/google.svg', class:"mr-3", size:'20x20'%> 
+				Continue with Google
+			</a>
+
+			<a href="#" class="mb-2 px-4 py-2 w-full flex items-center justify-center text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
+        <%= image_tag 'social/facebook.svg', class:"mr-3", size:'20x20'%>  
+					Continue with Facebook
+			</a>
+
+      <p class="text-center mt-5">
+      <%= render "devise/shared/links" %>
+      </p>
+
+    </div>
+  </div>  
+</section>

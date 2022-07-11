@@ -12,6 +12,14 @@
   </head>
 
   <body class="bg-gray-100 text-gray-600">
-    <%= yield %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%if user_signed_in? %>
+              <%= render partial:'partials/navbar'%>
+            <% else %>
+                <%= link_to 'Log in',new_user_password_path, class:"text-blue-500" %>
+                <%= link_to 'Create account', new_user_registration_path, class:"text-blue-500" %>
+            <% end %>
+     <%= yield %>
   </body>
 </html>
