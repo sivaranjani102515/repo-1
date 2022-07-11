@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :get_product, only: [:index, :product_details]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+
   def index
   end
 
@@ -9,12 +10,14 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def product_details
-  end
-
 
   def show
   end
+
+  def show_detail
+    @product = Product.friendly.find params[:id]
+  end
+
 
   def edit
   end
@@ -41,7 +44,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :visible)
+    params.require(:product).permit(:name, :description, :price, :visible, :image, category_ids: [])
   end
 
   def set_product

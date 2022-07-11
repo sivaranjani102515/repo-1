@@ -1,0 +1,35 @@
+<section class="bg-gray-50 py-10">
+	<div class="container max-w-screen-xl mx-auto px-4">
+		<!-- card -->
+		<div class="bg-white border border-gray-200 shadow-sm rounded mb-5 p-4 lg:p-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+				<aside>
+					<!-- gallery -->
+					<div class="border border-gray-200 p-3 text-center rounded mb-5">
+						<%if product.image.present?%>
+                        <%= image_tag product.image, class:"object-cover inline-block"%>
+						<%end%>
+					</div>
+				</aside>
+				<main>
+					 <h2 class="mb-6 lg:mb-10 text-4xl font-semibold font-heading">
+						<%= product.name %>
+					</h2>
+
+
+					<p class="mb-6 lg:mb-10 text-xl text-gray-500">
+						<%= product.description %>
+					</p>
+
+                    <div class="mb-10 border rounded-lg">
+						Category
+					  <% @product.categories.each do |category|%>
+						<p class ="font-semibold font-heading ">
+						<%= category.name %>
+						</p>
+					  <%end%>	
+               		  
+              			
+          			</div>
+
+					<!-- action buttons .//end -->

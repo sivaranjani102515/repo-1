@@ -1,0 +1,47 @@
+<div class="flex min-h-screen dark:bg-gray-900">
+    <%= render partial:'partials/aside'%>
+    <main class="w-full">
+        <%= render partial:'partials/header'%>
+        <section class="container p-6 mx-auto">
+            <h1 class="mb-4 text-xl md:text-2xl font-semibold text-black">
+                Table information </h1>
+                <!-- scrolling horiz. table -->
+              <div class="overflow-x-auto shadow-sm">
+                <table class="w-full whitespace-no-wrap">
+                    <thead>
+                        <tr class="text-xs font-semibold tracking-wide text-left uppercase bg-gray-200">
+                            <th class="px-3 py-3" width="400">categories</th>
+                            <th class="px-3 py-3">View</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y">
+                        <% @categories.each do |category| %>
+                      <tr class="text-gray-700 dark:text-gray-400">
+                         <td class="px-3 py-3">
+                            <div class="flex items-center leading-tight">
+                                <div class="mr-3 hidden md:block flex-shrink-0">
+                                    <%if category.image.persisted?%>
+                                         <%= image_tag category.image, class:"object-cover w-10 h-10 rounded-full" %>
+                                    <%end%>
+                                </div>
+                                <div>
+                                  <p class="font-semibold"><%=category.name %></p>
+                                </div>
+                            </div>                         
+                         </td>
+                          <td class="px-3 py-3">
+                            <%= link_to category  do %> 
+                              <div class="px-2 py-1 inline-block text-gray-500 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
+                                  <i class="fa fa-eye"></i>
+                              </div>  
+                            <% end %>
+                          </td>
+                      </tr>
+                      <% end %>
+                    </tbody>  
+                </table>    
+              </div>
+        </section>
+    </main>
+</div>
+

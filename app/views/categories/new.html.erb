@@ -1,0 +1,15 @@
+<b id="backdrop" onclick="hide_sidebar()" class="fixed hidden md:hidden bg-black opacity-60 top-0 left-0 right-0 bottom-0 z-30"></b>
+<div class="flex min-h-screen dark:bg-gray-900">
+  <%= render partial:'partials/aside'%> 
+  <main class="w-full">
+    <%= render partial:'partials/header'%>
+      <section class="container max-w-3xl p-6 mx-auto">
+        <article class="bg-white rounded shadow-sm border border-gray-200 p-4 lg:p-6 my-5">
+            <h2 class="mb-3 text-xl md:text-2xl font-semibold text-black">New category</h2>
+              <%= render "form", category: @category %>
+
+            <br>
+        </article>
+      </section> <!-- container -->
+  </main>
+</div>

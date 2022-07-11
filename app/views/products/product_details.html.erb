@@ -24,7 +24,9 @@
                             <td class="px-3 py-3">
                                 <div class="flex items-center leading-tight">
                                     <div class="mr-3 hidden md:block flex-shrink-0">
-                                    <!--IMG-->
+                                        <%if product.image.persisted?%>
+                                            <%= image_tag product.image, class:"object-cover w-10 h-10 rounded-full" %>
+                                        <%end%>
                                     </div>
                                     <div>
                                     <p class="font-semibold"><%=product.name %></p>
@@ -48,7 +50,6 @@
                                      <i class="fa fa-eye"></i>
                                     </div>  
                                 <% end %>
-
                             </td>
                         </tr>
                         <%end%>

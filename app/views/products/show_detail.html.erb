@@ -1,0 +1,22 @@
+<%= render partial:'partials/navbar'%>
+<%=render "product_detail", {product: @product}%>
+
+<!-- action buttons -->
+<div class="flex flex-wrap gap-3">
+    <a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="#">
+        Buy now
+    </a>
+
+    <a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+        href="#">
+        <i class="fa fa-shopping-cart mr-2"></i> 
+        Add to cart 
+    </a>
+
+    <a class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
+        href="#">
+        <i class="fa fa-heart mr-2"></i> 
+        Save for later 
+    </a>
+</div>
+<!-- action buttons .//end -->

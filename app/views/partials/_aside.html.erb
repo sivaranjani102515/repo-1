@@ -12,7 +12,7 @@
 
           <ul>
             <li class="hover:bg-blue-100 relative">
-              <%= link_to 'Product', new_products_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+              <%= link_to 'Product', new_product_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
 
             </li>
 
@@ -20,9 +20,18 @@
               <%= link_to 'Detail Products', product_details_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
             </li>
 
-              <li class="hover:bg-blue-100 relative">
+            <li class="hover:bg-blue-100 relative">
+              <%= link_to 'Category', new_category_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+            </li>
+
+            
+            <li class="hover:bg-blue-100 relative">
+              <%= link_to 'Detail Category', categories_path, class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
+            </li>
+
+            <li class="hover:bg-blue-100 relative">
                   <%= link_to 'Store', products_path , class:'flex px-5 py-3 items-center w-full text-white hover:text-white hover:bg-blue-700'%>
-              </li>
+            </li>
 
 
           </ul>
