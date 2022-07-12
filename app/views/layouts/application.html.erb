@@ -12,13 +12,14 @@
   </head>
 
   <body class="bg-gray-100 text-gray-600">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
             <%if user_signed_in? %>
-              <%= render partial:'partials/navbar'%>
-            <% else %>
-                <%= link_to 'Log in',new_user_password_path, class:"text-blue-500" %>
-                <%= link_to 'Create account', new_user_registration_path, class:"text-blue-500" %>
+                <% if current_user && current_user.has_role?(:admin) %>
+                    <div class="bg-white py-3 border-b">
+                        <div class="container max-w-screen-xl mx-auto px-4">
+                          <%= link_to 'Admin', admin_path, class:"text-blue-600" %>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
      <%= yield %>
   </body>
