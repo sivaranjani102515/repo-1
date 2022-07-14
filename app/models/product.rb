@@ -15,7 +15,7 @@ class Product < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: :slugged
     has_one_attached :image, :dependent => :destroy
-    has_many :product_categories
+    has_many :product_categories, :dependent => :destroy
     has_many :categories, through: :product_categories
 
     accepts_nested_attributes_for :categories

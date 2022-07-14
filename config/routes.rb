@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :shop_carts do
+    resource :adds, only: :create
+  end
   devise_for :users
   resources :categories
   #get 'products', to: 'products#index'
