@@ -1,5 +1,6 @@
     <div>
     <!-- COMPONENT: PRODUCT CARD -->
+        <%= turbo_stream_from current_cart %>
         <article class="shadow-sm rounded bg-white border border-gray-200">
             <a href="#" class="block relative p-1">
                 <!-- COMPONENT: IMG -->
@@ -10,10 +11,10 @@
             <div class="p-4 border-t border-t-gray-200">
                 <p class="font-semibold">$<%= product.price %></p>
                 <div class="block text-gray-600 mb-3 hover:text-blue-500">
-                    <%= link_to show_detail_product_path(product), class:"block text-gray-600 mb-3 hover:text-blue-500" do %> 
-                    <%=  product.name  %>  
+                    <%= link_to show_detail_product_path(product), class:"block text-gray-600 mb-3 hover:text-blue-500" do %>
+                    <%=  product.name  %>
                     <% end %>
-                </div>    
+                </div>
                 <div>
                     <%=button_to "Add to cart", shop_carts_adds_path, params: {product:product}, class:"px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"%>
                 </div>
