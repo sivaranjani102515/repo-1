@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  #get 'checkouts/show'
+  resource :checkout, only: :show
   namespace :shop_carts do
     resource :adds, only: :create
+    resource :reduce, only: :create
+    resource :remove, only: :destroy
   end
   devise_for :users
   resources :categories

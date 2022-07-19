@@ -1,0 +1,53 @@
+<!-- item-cart -->
+<%= content_tag :div, class:"flex flex-wrap lg:flex-row gap-5  mb-4", id: dom_id(cart_item) do%>
+    <div class="w-full lg:w-2/5 xl:w-2/4">
+        <figure class="flex leading-5">
+            <div>
+                <div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
+                    <%=image_tag cart_item.product.image%>
+                </div>
+            </div>
+            <figcaption  class="ml-3">
+                <p class="hover:text-blue-600"><%= cart_item.product.name%> </p>
+            </figcaption>
+        </figure>
+    </div>
+    <div class="">
+        <!-- selection -->	
+        <div class="w-24 relative">
+        <!--
+        <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
+            <option>1</option>
+            <option>2</option>	
+            <option>3</option>	
+        </select>
+        <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
+            <svg width="22" height="22" class="fill-current" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"></path></svg>
+        </i>
+        -->
+        <div class="text-center block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
+          <%= render "shop_carts/item_quantity", cart_item: cart_item %>
+        </div>
+        <div class="absolute inset-y-0 left-0 p-2 text-gray-400" >
+            <%= button_to "-", shop_carts_reduce_path, params: {product: cart_item.product}, class: "fill-current"%>
+        </div>
+        <div class="absolute inset-y-0 right-0 p-2 text-gray-400" >
+            <%= button_to "+", shop_carts_adds_path, params: {product: cart_item.product}, class: "fill-current"%>
+        </div>
+    </div>
+    <!-- selection .//end -->	
+    </div>
+    <div>
+        <div class="leading-5">
+            <p class="font-semibold not-italic"><%= number_to_currency(cart_item.product.price)%></p>
+        </div>
+    </div>
+    <div class="flex-auto">
+        <div class="float-right">
+            <%= button_to "Remove",shop_carts_remove_path ,params: {product: cart_item.product}, method: :delete, class:"px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"%>
+        </div>
+    </div>
+
+<%end%>
+
+<hr class="my-4">

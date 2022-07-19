@@ -1,0 +1,3 @@
+<span id="total_price">
+    <%=number_to_currency(current_cart.shop_cart_items.sum(&:total_price))%>
+</span>

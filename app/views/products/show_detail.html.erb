@@ -7,11 +7,7 @@
         Buy now
     </a>
 
-    <a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-        href="#">
-        <i class="fa fa-shopping-cart mr-2"></i> 
-        Add to cart 
-    </a>
+    <%=button_to "Add to cart", shop_carts_adds_path, params: {product:@product}, class:"px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" %>
 
     <a class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
         href="#">
@@ -20,3 +16,4 @@
     </a>
 </div>
 <!-- action buttons .//end -->
+

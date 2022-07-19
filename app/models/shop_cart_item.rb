@@ -1,4 +1,6 @@
 class ShopCartItem < ApplicationRecord
+  include ActionView::RecordIdentifier
+
   belongs_to :shop_cart
   belongs_to :product
 
@@ -8,6 +10,11 @@ class ShopCartItem < ApplicationRecord
                           target: "cart_count",
                           partial: "shop_carts/item_count",
                           locals: { count: shop_cart.quantity }
+    
+    broadcast_replace_to shop_cart,
+                          target: "total_price",
+                          partial: "shop_carts/total_price",
+                          locals: { current_cart: shop_cart }
   end
 
   after_update_commit do
@@ -15,6 +22,34 @@ class ShopCartItem < ApplicationRecord
                           target: "cart_count",
                           partial: "shop_carts/item_count",
                           locals: { count: shop_cart.quantity }
+    
+    broadcast_replace_to shop_cart,
+                          target: dom_id(self, "quantity"),
+                          partial: "shop_carts/item_quantity",
+                          locals: { cart_item: self }
+    
+  broadcast_replace_to shop_cart,
+                          target: "total_price",
+                          partial: "shop_carts/total_price",
+                          locals: { current_cart: shop_cart }
 
+  end
+
+  after_destroy_commit do
+    broadcast_remove_to shop_cart
+    broadcast_replace_to shop_cart,
+                          target: "cart_count",
+                          partial: "shop_carts/item_count",
+                          locals: { count: shop_cart.quantity }
+
+  broadcast_replace_to shop_cart,
+                          target: "total_price",
+                          partial: "shop_carts/total_price",
+                          locals: { current_cart: shop_cart }
+
+  end
+
+  def total_price
+    quantity.to_i * product.price.to_f
   end
 end

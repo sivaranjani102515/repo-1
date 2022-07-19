@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    #debugger
     @product.destroy
     redirect_to product_details_path, status: :see_other, notice: "Product was successfully destroyed." 
   end
