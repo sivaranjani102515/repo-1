@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_15_173556) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_192621) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -82,6 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_173556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "stripe_price_id"
+    t.string "stripe_product_id"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
@@ -110,7 +112,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_173556) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["token"], name: "index_shop_carts_on_token", unique: true
+    t.index ["user_id"], name: "index_shop_carts_on_user_id"
   end
 
   create_table "shopping_carts", force: :cascade do |t|
@@ -148,5 +152,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_15_173556) do
   add_foreign_key "product_categories", "products"
   add_foreign_key "shop_cart_items", "products"
   add_foreign_key "shop_cart_items", "shop_carts"
+  add_foreign_key "shop_carts", "users"
   add_foreign_key "shopping_carts", "users"
 end

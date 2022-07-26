@@ -58,6 +58,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "dotenv-rails"
 
   gem "annotate", git: "https://github.com/ctran/annotate_models.git"
 
@@ -78,3 +79,5 @@ end
 gem "devise", "~> 4.8"
 
 gem "rolify", "~> 6.0"
+
+gem "stripe", "~> 6.5"
