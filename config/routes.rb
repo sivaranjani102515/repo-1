@@ -17,5 +17,6 @@ Rails.application.routes.draw do
       get 'show_detail', to: 'products#show_detail', as: :show_detail
     end
   end
+  post '/webhook', to: 'webhook#receive'
   root "main#welcome"
 end

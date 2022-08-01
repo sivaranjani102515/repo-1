@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_192621) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_27_223034) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -113,6 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_192621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "stripe_payment_id"
+    t.string "status"
     t.index ["token"], name: "index_shop_carts_on_token", unique: true
     t.index ["user_id"], name: "index_shop_carts_on_user_id"
   end
@@ -134,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_192621) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "product_ids", default: []
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

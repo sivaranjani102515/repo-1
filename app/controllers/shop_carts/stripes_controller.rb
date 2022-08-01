@@ -15,6 +15,7 @@ module ShopCarts
                 payment_method_types: ['card'],
                 line_items: prices
             })
+            shop_cart.update(stripe_payment_id: session.payment_intent)
             redirect_to session.url, allow_other_host: true
         end 
     end

@@ -2,11 +2,13 @@
 #
 # Table name: shop_carts
 #
-#  id         :integer          not null, primary key
-#  token      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id                :integer          not null, primary key
+#  status            :string
+#  token             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  stripe_payment_id :string
+#  user_id           :integer
 #
 # Indexes
 #
