@@ -81,3 +81,7 @@ gem "devise", "~> 4.8"
 gem "rolify", "~> 6.0"
 
 gem "stripe", "~> 6.5"
+
+
+
+gem "pg", "~> 1.4"
