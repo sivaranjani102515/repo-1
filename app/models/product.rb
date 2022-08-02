@@ -28,13 +28,13 @@ class Product < ApplicationRecord
     after_create :create_stripe_product
 
     def create_stripe_product
-        product = Stripe::Product.create({name: self.name,})
-        price = Stripe::Price.create({
+        stripe_product = Stripe::Product.create({name: self.name, price: self.price})
+        stripe_price = Stripe::Price.create({
             product: product.id,
             unit_amount: self.price,
             currency: 'usd',
         })
 
-          update(stripe_product_id: product.id, stripe_price_id: price.id)
+          update(stripe_product_id: stripe_product.id, stripe_price_id: stripe_price.id)
     end
 end
