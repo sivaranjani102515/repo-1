@@ -28,9 +28,9 @@ class Product < ApplicationRecord
     after_create :create_stripe_product
 
     def create_stripe_product
-        stripe_product = Stripe::Product.create({name: self.name, price: self.price})
+        stripe_product = Stripe::Product.create({name: self.name})
         stripe_price = Stripe::Price.create({
-            product: product.id,
+            product: stripe_product.id,
             unit_amount: self.price,
             currency: 'usd',
         })
