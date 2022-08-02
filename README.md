@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ejecutar el proyecto:
 
-Things you may want to cover:
+1. En produccion ejecutar la siguiente url: https://warm-hollows-12052.herokuapp.com/users/sign_in
 
-* Ruby version
+2. En Sign up: Registrar correo electrónico y contraseña
 
-* System dependencies
+3. Ingresara a la pantalla de inicio de la aplicacion ecommerces
 
-* Configuration
+4. en la url https://warm-hollows-12052.herokuapp.com/admin entrara al administrador para poder crear los productos y categorias.
 
-* Database creation
+5. Iniciamos creando Categora
 
-* Database initialization
+6. Luego ingresamos el producto
 
-* How to run the test suite
+7. en la sub seccion store ingresara nuevamente a visualizar los productos.
 
-* Services (job queues, cache servers, search engines, etc.)
+8. Add to cart para agregar los productos al carrito.
 
-* Deployment instructions
+9. My Cart visualizara wl deralle de los productos agregados, puede aumentar y disminuir su cantidad, esto se vera reflejado en el Total price.
 
-* ...
+10. en la opcion checkout podra realizar su pago y lo devolvera al home de la aplicacion. 
+
