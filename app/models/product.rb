@@ -34,7 +34,9 @@ class Product < ApplicationRecord
             unit_amount: self.price,
             currency: 'usd',
         })
-        update(stripe_product_id: product.id, stripe_price_id: price.id)
-            
+        if stripe_price_id.present?
+            update(stripe_product_id: product.id, stripe_price_id: price.id)
+        end
+    
     end
 end
