@@ -23,4 +23,15 @@
             <% end %>
      <%= yield %>
   </body>
+  <script>
+        var buttons = document.querySelectorAll('.message-close');
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+                var message = document.getElementById('message-' + button.value);
+                message.style.display = 'none';
+          });
+        });
+
+  </script>
 </html>
+

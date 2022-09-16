@@ -29,7 +29,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
-    redirect_to product_details_path
+
+    if @product.persisted?
+      redirect_to product_details_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

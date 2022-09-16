@@ -27,6 +27,11 @@ class Product < ApplicationRecord
     accepts_nested_attributes_for :categories
     after_create :create_stripe_product
 
+    validates :name, presence: { massage: "Name can't be blank" }
+    validates :description, presence: { massage: "Description can't be blank" }
+    validates :price, presence: { massage: "Price can't be blank" }
+    
+
     def create_stripe_product
         stripe_product = Stripe::Product.create({name: self.name})
         stripe_price = Stripe::Price.create({

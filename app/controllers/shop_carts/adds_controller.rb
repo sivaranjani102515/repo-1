@@ -9,6 +9,11 @@ module ShopCarts
             cart_item.quantity += 1
             cart_item.save
         end
+        
+        if product.persisted?
+            redirect_to shop_carts_adds_path, notice: "Product was successfully added to cart."
+        end
+
       end
 
       private
