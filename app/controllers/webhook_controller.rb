@@ -4,7 +4,9 @@ class WebhookController < ApplicationController
 
     def receive
       event_sting = request.body.read
-      
+      puts "Imprime el evento" 
+      puts event_sting
+
       event = Stripe::Event.construct_from(
         JSON.parse(event_sting, symbolize_names: true),
         )

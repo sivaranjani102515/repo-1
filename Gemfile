@@ -47,6 +47,8 @@ gem "bootsnap", require: false
 
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'will_paginate', '~> 3.3.0'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
