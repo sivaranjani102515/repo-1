@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :get_product, only: [:product_details]
+  before_action :get_product, only: [:product_details, :index]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    current_page = params[:page] ||= 1
-    @products = Product.where(visible: true).order('id DESC').paginate(page:current_page, :per_page => 6)
+    
   end
 
   def new
@@ -48,7 +47,8 @@ class ProductsController < ApplicationController
   private
 
   def get_product
-    @products = Product.all
+    current_page = params[:page] ||= 1
+    @products = Product.where(visible: true).order('id DESC').paginate(page:current_page, :per_page => 8)
   end
 
   def product_params
