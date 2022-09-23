@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
   def search
     @q = params[:q]
-    @products = Product.where("name LIKE ?", "%#{@q}%").where(visible: true).order('id DESC')
+    @products = Product.where(visible:true).where("name LIKE ?", "%#{@q}%").order('id DESC')
   end
 
   private
