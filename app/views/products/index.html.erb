@@ -11,7 +11,7 @@
         </div>
 		<div class="text-center mt-5">
         	<% if @products.next_page.present?%>
-            	 <%= link_to  "view plus products", products_path(page:@products.next_page),  class:"px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"%>
+            	 <%= link_to  "view more products", products_path(page:@products.next_page),  class:"px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"%>
         	<% end %>
     	</div>
     </div>

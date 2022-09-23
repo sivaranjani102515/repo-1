@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'products/product_details', to: 'products#product_details', as: 'product_details'
   #post 'products', to: 'products#create'
   resources :products do 
+    get 'search', on: :collection
     member do
       get 'show_detail', to: 'products#show_detail', as: :show_detail
     end

@@ -44,6 +44,11 @@ class ProductsController < ApplicationController
     redirect_to product_details_path, status: :see_other, notice: "Product was successfully destroyed." 
   end
 
+  def search
+    @q = params[:q]
+    @products = Product.where("name LIKE ?", "%#{@q}%").where(visible: true).order('id DESC')
+  end
+
   private
 
   def get_product
