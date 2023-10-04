@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+index:
+  min_price: 'Min price'
+  ma_price:  'Max price'

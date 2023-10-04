@@ -4,7 +4,16 @@ class ProductsController < ApplicationController
 
 
   def index
-    
+    @categories = Category.order(name: :asc).load_async
+    if params[:category_id]
+      @products = @products.where(category_id: params[:category_id])
+    end
+    if params[:min_price].present?
+       @products = @products.where("price >= ?", params[:min_price])
+    end
+    if params[:max_price].present?
+       @products = @products.where("price <= ?", params[:max_price])
+    end
   end
 
   def new
@@ -53,11 +62,11 @@ class ProductsController < ApplicationController
 
   def get_product
     current_page = params[:page] ||= 1
-    @products = Product.where(visible: true).order('id DESC').paginate(page:current_page, :per_page => 8)
+    @products = Product.where(visible: true).order('id DESC').paginate(page:current_page, :per_page => 8).load_async
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :visible, :image, category_ids: [])
+    params.require(:product).permit(:name, :description, :price, :visible, :image, :category_id, category_ids: [])
   end
 
   def set_product

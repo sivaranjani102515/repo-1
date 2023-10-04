@@ -11,7 +11,7 @@
             <div class="p-4 border-t border-t-gray-200">
                 <p class="font-semibold">$<%= product.price %></p>
                 <div class="block text-gray-600 mb-3 hover:text-blue-500">
-                    <%= link_to show_detail_product_path(product), class:"block text-gray-600 mb-3 hover:text-blue-500" do %>
+                    <%= link_to show_detail_product_path(product), class:"block text-gray-600 mb-3 hover:text-blue-500", "data-turbo-frame": "_top" do %>
                     <%=  product.name  %>
                     <% end %>
                 </div>

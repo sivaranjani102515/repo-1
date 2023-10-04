@@ -10,6 +10,7 @@
 #  visible           :boolean          default(TRUE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  category_id       :integer
 #  stripe_price_id   :string
 #  stripe_product_id :string
 #
