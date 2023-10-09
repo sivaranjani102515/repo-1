@@ -89,3 +89,11 @@ gem "pg", "~> 1.4"
 
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"
+
+gem "aws-sdk-s3"
