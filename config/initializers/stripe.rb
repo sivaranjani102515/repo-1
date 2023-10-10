@@ -1,3 +1,3 @@
 require 'stripe'
 
-Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+Stripe.api_key = 'sk_test_51LNJNZA5NkVRsYN8FNsoK7GFgOdXw6gQfNKKkY1MKHOnQk7g0obmcbI7tw29rtWrZ903NERa4kTzRYhRD1owkj4C00uM4Wos7i'
