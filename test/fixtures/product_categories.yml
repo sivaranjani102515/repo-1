@@ -2,7 +2,7 @@
 #
 # Table name: product_categories
 #
-#  id               :integer          not null, primary key
+#  id               :bigint           not null, primary key
 #  product_category :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -16,8 +16,8 @@
 #
 # Foreign Keys
 #
-#  category_id  (category_id => categories.id)
-#  product_id   (product_id => products.id)
+#  fk_rails_...  (category_id => categories.id)
+#  fk_rails_...  (product_id => products.id)
 #
 
 one:

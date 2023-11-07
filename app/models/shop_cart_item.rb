@@ -2,7 +2,7 @@
 #
 # Table name: shop_cart_items
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  quantity     :integer          default(0)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -16,8 +16,8 @@
 #
 # Foreign Keys
 #
-#  product_id    (product_id => products.id)
-#  shop_cart_id  (shop_cart_id => shop_carts.id)
+#  fk_rails_...  (product_id => products.id)
+#  fk_rails_...  (shop_cart_id => shop_carts.id)
 #
 class ShopCartItem < ApplicationRecord
   include ActionView::RecordIdentifier

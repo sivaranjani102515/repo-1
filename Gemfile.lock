@@ -120,6 +120,7 @@ GEM
       aws_cf_signer
       rest-client (>= 2.0.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.4.1)
     crass (1.0.6)
     debug (1.6.1)
       irb (>= 1.3.6)
@@ -233,6 +234,8 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redis (4.7.1)
+    redis-client (0.18.0)
+      connection_pool
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -259,6 +262,11 @@ GEM
       sentry-ruby (~> 5.11.0)
     sentry-ruby (5.11.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
+    sidekiq (7.2.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -266,7 +274,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
     ssrf_filter (1.0.7)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
@@ -328,8 +335,8 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails (~> 5.11)
   sentry-ruby (~> 5.11)
+  sidekiq
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   stripe (~> 6.5)
   turbo-rails
