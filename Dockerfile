@@ -16,8 +16,12 @@ COPY Gemfile* ./
 
 RUN bundle install
 
+RUN bundle exec rake assets:precompile
+RUN bundle exec rake assets:clean
+RUN bundle exec rake db:migrate
+
 COPY . ./
 
 EXPOSE 3000
 
-CMD [ "bin/rails", "s", "-b", "0.0.0.0" ]
+CMD [ "bundle", "exec", "puma", "-C", "config/puma.rb"]
