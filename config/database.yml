@@ -1,17 +1,23 @@
 default: &default
   adapter: postgresql
-  database: ecommerce_dev
-  username: postgres
-  password: postgres
-  host: db
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
 
 development:
   <<: *default
+  database: ecommerce_app_development
 
+  # The specified database role being used to connect to postgres.
+  # To create additional roles in postgres see `$ createuser --help`.
+  # 
 test:
   <<: *default
+  database: ecommerce_app_test
+
 
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  database: ecommerce_app_production
